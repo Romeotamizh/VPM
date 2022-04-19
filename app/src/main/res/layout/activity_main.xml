@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="currentTab"
+            type="Tab" />
+
+        <import
+            alias="Tab"
+            type="com.optisol.vpm.ui.activity.MainActivity.Tab" />
+
+        <import type="com.optisol.vpm.R" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/off_black"
+        tools:context=".ui.activity.MainActivity">
+
+
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/videos_button"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@{ (currentTab==Tab.VIDEOS) ? @drawable/rounded_rectangle : null}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+
+            />
+
+        <TextView
+            android:id="@+id/videos_text"
+            style="@style/CustomTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Videos"
+            android:textColor="@color/white_90"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/videos_button"
+            app:layout_constraintEnd_toEndOf="@id/videos_button"
+            app:layout_constraintStart_toStartOf="@id/videos_button"
+            app:layout_constraintTop_toTopOf="@id/videos_button" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/feeds_button"
+            android:layout_width="96dp"
+            android:layout_height="48dp"
+            android:layout_margin="8dp"
+            android:src="@{ (currentTab==Tab.FEEDS) ? @drawable/rounded_rectangle : null}"
+            app:layout_constraintStart_toEndOf="@id/videos_button"
+            app:layout_constraintTop_toTopOf="parent"
+
+
+            />
+
+        <TextView
+            android:id="@+id/feeds_text"
+            style="@style/CustomTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Feeds"
+            android:textColor="@color/white_90"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/feeds_button"
+            app:layout_constraintEnd_toEndOf="@id/feeds_button"
+            app:layout_constraintStart_toStartOf="@id/feeds_button"
+            app:layout_constraintTop_toTopOf="@id/feeds_button" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/videos_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
